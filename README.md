@@ -5,12 +5,12 @@ This repository holds a very small starter project intended for experiments with
 ## Services
 
 - **service.api** – Django backend using Python 3.12 and `uv` for dependency management
-- **service.ws** – Golang WebSocket service (placeholder)
+- **service.ws** – Golang WebSocket server implemented in Go 1.24
 - **client.web** – React frontend (placeholder)
 - **infra.postgres** – PostgreSQL database
 
 The Django backend lives in `service/api` and is built with a multi-stage `Dockerfile`.
-Run `django-admin startproject api .` inside that folder once before the first build to generate the project skeleton.
+The WebSocket server code lives in `service/ws` and exposes port `8080`.
 
 A `docker-compose.yml` file is provided with placeholders for these services. Each service connects to a shared network named `app-network` and exposes its development port.
 
