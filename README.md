@@ -17,6 +17,7 @@ A `docker-compose.yml` file is provided with placeholders for these services. Ea
 To start the stack once real implementations exist:
 
 ```bash
+docker compose build
 docker-compose up
 ```
 

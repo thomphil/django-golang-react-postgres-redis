@@ -16,6 +16,7 @@ The stack reads environment variables from `.env`.
 - Golang unit tests are run with `go test ./...`.
 - React/Node unit tests are run with `npm test --silent`.
 - Run all relevant test suites after making changes and before committing. If a test command fails because dependencies are missing, mention this in the PR as required by the main instructions.
+- Confirm the Docker Compose stack builds successfully with `docker compose build`.
 
 ## Documentation
 
