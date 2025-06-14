@@ -34,9 +34,11 @@ services:
   client.web:
     build:
       context: ./client/web
+      target: dev
     volumes:
       - ./client/web:/app
     working_dir: /app
+    command: npm run dev
     ports:
       - "3000:3000"
     networks:
