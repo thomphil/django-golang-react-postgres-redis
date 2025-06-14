@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 
 export default defineConfig({
   plugins: [react()],
@@ -10,14 +11,18 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': 'http://localhost:8000',
-      // Explicitly proxy root path to Django
-      '/': {
-        target: 'http://localhost:8000',
-        changeOrigin: true,
-        ws: false,
-      },
-      // Proxy all other requests except static assets and Vite internals to Django
-      '^/(?!src|@vite|node_modules|assets|build)': 'http://localhost:8000',
+    },
+    // Custom middleware to proxy root requests to Django
+    setupMiddlewares(middlewares, devServer) {
+      middlewares.use(
+        '/',
+        createProxyMiddleware({
+          target: 'http://localhost:8000',
+          changeOrigin: true,
+          ws: false,
+        })
+      );
+      return middlewares;
     }
   }
 });

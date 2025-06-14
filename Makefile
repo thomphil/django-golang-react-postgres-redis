@@ -1,6 +1,6 @@
 # Makefile for unified dev environment
 
-.PHONY: up down build logs restart stop test test-django test-go test-react shell-api shell-ws shell-web
+.PHONY: up down build logs restart stop test test-django test-go test-react shell-api shell-ws shell-web install-proxy-middleware
 
 up:
 	docker-compose up
@@ -47,3 +47,7 @@ test-react:
 
 logs-service:
 	docker-compose logs -f $(SERVICE)
+
+# Install http-proxy-middleware for Vite custom proxying
+install-proxy-middleware:
+	cd client/web && npm install http-proxy-middleware --save-dev
