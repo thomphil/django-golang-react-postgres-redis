@@ -8,6 +8,9 @@ up:
 upd:
 	docker-compose up -d
 
+upb:
+	docker-compose up --build
+
 down:
 	docker-compose down
 
