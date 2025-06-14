@@ -36,7 +36,7 @@ launches the Vite dev server on <http://localhost:3000>. For production builds
 the multi-stage `Dockerfile` compiles the app and serves the `build/` directory
 with Nginx. Requests to `/api/` are proxied to the Django backend.
 
-Run the frontend unit tests with:
+Run the frontend unit tests with Vitest using the jsdom environment:
 
 ```bash
 cd client/web
