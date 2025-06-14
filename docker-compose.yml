@@ -4,7 +4,11 @@ services:
   # service.api - Django backend
   service.api:
     build:
-      context: ./service.api  # placeholder build context
+      context: ./service/api
+    volumes:
+      - ./service/api:/app
+    working_dir: /app
+    command: ["./wait-for-it.sh", "infra.postgres:5432", "--", "python", "manage.py", "runserver", "0.0.0.0:8000"]
     ports:
       - "8000:8000"
     networks:
