@@ -4,8 +4,9 @@
 FROM node:22-alpine AS dev
 WORKDIR /app
 
-COPY package.json package-lock.json* pnpm-lock.yaml* bun.lockb* ./
-RUN npm install
+COPY package.json ./
+COPY package-lock.json ./
+RUN rm -f package-lock.json && npm install
 
 COPY . .
 
@@ -16,8 +17,9 @@ CMD ["npm", "run", "dev"]
 FROM node:22-alpine AS build
 WORKDIR /app
 
-COPY package.json package-lock.json* pnpm-lock.yaml* bun.lockb* ./
-RUN npm install
+COPY package.json ./
+COPY package-lock.json ./
+RUN rm -f package-lock.json && npm install
 
 COPY . .
 RUN npm run build
