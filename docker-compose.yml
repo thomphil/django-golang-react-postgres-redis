@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  # service.api - Django backend
+  service.api:
+    build:
+      context: ./service.api  # placeholder build context
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+    env_file:
+      - .env
+
+  # service.ws - Golang WebSocket service
+  service.ws:
+    build:
+      context: ./service.ws  # placeholder build context
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    env_file:
+      - .env
+
+  # client.web - React frontend
+  client.web:
+    build:
+      context: ./client.web  # placeholder build context
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    env_file:
+      - .env
+
+  # infra.postgres - PostgreSQL database
+  infra.postgres:
+    image: postgres:latest  # placeholder image
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+    env_file:
+      - .env
+
+volumes:
+  pgdata:
+
+networks:
+  app-network:
+    driver: bridge
