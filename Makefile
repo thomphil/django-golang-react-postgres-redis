@@ -44,3 +44,6 @@ test-go:
 
 test-react:
 	docker-compose exec client.web npm test -- --watchAll=false
+
+logs-service:
+	docker-compose logs -f $(SERVICE)
