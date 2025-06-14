@@ -10,7 +10,7 @@ This repository holds a very small starter project intended for experiments with
 - **infra.postgres** – PostgreSQL database
 
 The Django backend lives in `service/api` and is built with a multi-stage `Dockerfile`.
-Run `django-admin startproject myproject .` inside that folder once before the first build to generate the project skeleton.
+Run `django-admin startproject api .` inside that folder once before the first build to generate the project skeleton.
 
 A `docker-compose.yml` file is provided with placeholders for these services. Each service connects to a shared network named `app-network` and exposes its development port.
 
