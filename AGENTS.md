@@ -2,6 +2,14 @@
 
 This repository is intended as a Django + Golang + React starter project. All pull requests must include unit tests for any new functionality. Keep the instructions and tooling easy for an LLM to follow.
 
+A stub `docker-compose.yml` defines the following services connected by the `app-network`:
+- `service.api` (Django backend)
+- `service.ws` (Golang WebSocket service)
+- `client.web` (React frontend)
+- `infra.postgres` (PostgreSQL)
+
+The stack reads environment variables from `.env`.
+
 ## Testing
 
 - Python unit tests are run with `pytest`.
@@ -12,4 +20,3 @@ This repository is intended as a Django + Golang + React starter project. All pu
 ## Documentation
 
 - Keep `README.md` up to date with explanations for project layout and usage instructions.
-
