@@ -1,0 +1,4 @@
+# Ignore development artifacts
+.env
+*.log
+tmp/
