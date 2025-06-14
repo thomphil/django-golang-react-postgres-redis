@@ -1,1 +1,30 @@
+# add a sensible .gitignore for our project
 node_modules/
+.env
+*.log
+.DS_Store
+coverage/
+# Ignore build artifacts
+dist/
+# Ignore IDE specific files
+.vscode/
+# Ignore test output
+test-results/
+# Ignore temporary files
+*.tmp
+# Ignore lock files
+package-lock.json
+# Ignore local configuration files
+*.local
+# Ignore system files
+Thumbs.db
+# Ignore backup files
+*.bak
+# Ignore macOS specific files
+.AppleDouble
+# Ignore Windows specific files
+ehthumbs.db
+# Ignore Linux specific files
+*~
+# Ignore __pycache__ directories
+__pycache__/
